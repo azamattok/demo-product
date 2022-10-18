@@ -1,0 +1,36 @@
+## Spring DATASOURCE (DataSourceAutoConfiguration & DataSourceProperties)
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: root
+    url: jdbc:postgresql://localhost:5432/shop
+
+  jpa:
+    show-sql: false
+    #    generate-ddl: false
+    hibernate:
+      ddl-auto: create
+    database: postgresql
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false;
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+  #      dialect: org.hibernate.dialect.MySQL5Dialect
+
+  #  jackson:
+  #    default-property-inclusion: non_null
+  #  redis:
+  #    host: localhost
+  #    port: 6379
+  #  freemarker:
+  #      cache: false
+storage:
+  bucket: test
+  endpoint: https://storage-api-dev.jurta.kz
+  login: video-jurta
+  password: 4110AXXrm1qUqeBD
+
+
+

@@ -1,0 +1,38 @@
+<h1 align="center" class="display-4 ">Товары</h1>
+<a   style="color: inherit"
+   routerLink="/product/new" class="float-right mb-3"><i class="fas fa-plus fa-2x">Add</i>
+</a>
+<table id="table" class="table table-striped text-center" style="width:100%;">
+    <thead>
+    <tr>
+        <th scope="col">Фото</th>
+        <th scope="col">ID</th>
+        <th scope="col">Наименование</th>
+        <th scope="col">Описание</th>
+        <th scope="col">Количество</th>
+        <th scope="col">Цена, тенге</th>
+        <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let productInfo of page?.data">
+        <th class="align-middle" scope="row">
+            <img height="100px" src="{{productInfo.photo}}" alt="{{productInfo.name}}">
+        </th>
+        <td class="align-middle">{{productInfo.uid}}</td>
+        <td class="align-middle">{{productInfo.name}}</td>
+        <td class="align-middle">{{productInfo.description}}</td>
+        <td class="align-middle">{{productInfo.quantity}}</td>
+        <td class="align-middle">{{productInfo.price}}</td>
+        <td class="align-middle">
+            <a style="display: block" routerLink="/product/{{productInfo.uid}}/edit">
+                Edit</a>
+
+            <a style="display: block"
+               (click)="remove(page.data, productInfo.uid)" routerLink="./">
+                Remove</a>
+        </td>
+
+    </tbody>
+</table>
+<app-pagination [currentPage]="page"></app-pagination>
